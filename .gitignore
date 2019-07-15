@@ -2,7 +2,7 @@
 .vscode
 # Prerequisites
 *.d
-
+*.s
 # Compiled Object files
 *.slo
 *.lo
