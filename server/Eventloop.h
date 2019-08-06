@@ -1,24 +1,32 @@
 #ifndef EVENTLOOP_H
 #define EVENTLOOP_H
 
-#include <iostream> 
+#include <vector>
+#include <memory>
+
+#include "Thread.h"
+#include "Channel.h"
+#include "Watcher.h"
 
 namespace SS
 {
-  __thread Eventloop* local_loop = nullptr;  // 当前线程local的eventloop
-
   class Eventloop {
     public:
-      Eventloop();
+      Eventloop(int timeout=1000);
       ~Eventloop();
 
-      static EventLoop* get_current_loop() { return local_loop; };
-      start();
-      finish();
+      static Eventloop* get_current_loop();
+      void quit();
+      void loop();
+      void update_channel(Channel* ch);
     private:
       const pid_t thread_id;
       bool looping;
-  }
+      int timeout;
+
+      std::shared_ptr<Watcher> watcher;
+      std::vector<Channel*> active_channels;
+  };
 } // namespace SS
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 #endif
