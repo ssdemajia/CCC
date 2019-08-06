@@ -1,4 +1,7 @@
-OBJECTS = Eventloop.o Channel.o Watcher.o Thread.o
+OBJECTS = Eventloop.o Channel.o Watcher.o Thread.o Socket.o IP.o Acceptor.o
+
+acceptor_example: $(OBJECTS) acceptor_example.cpp
+	c++ -Wc++11-extensions -g -std=c++11 -o acceptor_example.out acceptor_example.cpp $(OBJECTS)
 
 eventloop_example:  $(OBJECTS) eventloop_example.cpp
 	c++ -g -std=c++11 -o eventloop_example.out eventloop_example.cpp $(OBJECTS)
@@ -15,5 +18,13 @@ watcher: Watcher.cpp Watcher.h
 thread: Thread.cpp Thread.h
 	c++ -std=c++11 -c Thread.cpp -o Thread.o
 
+acceptor: Acceptor.cpp Acceptor.h
+	c++ -std=c++11 -c Acceptor.cpp -o Acceptor.o
+
+ip: IP.cpp IP.h
+	c++ -std=c++11 -c IP.cpp -o IP.o
+
+socket: Socket.cpp Socket.h
+	c++ -std=c++11 -c Socket.cpp -o Socket.o
 clean:
 	rm *.o

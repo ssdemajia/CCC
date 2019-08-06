@@ -8,10 +8,16 @@ namespace SS
 {
   class IP {
     public:
+      IP() {}
       IP(const std::string ip, uint16_t port);
-      ~IP();
+      struct sockaddr_in& get_addr();
+      void set_addr(sockaddr_in& in_addr) { addr = in_addr; }
+      void set_addr(sockaddr* in_addr) {
+        auto a = (sockaddr_in*)in_addr;
+        addr = *a;
+      }
     private:
-      struct sockaddr_in* addr;
+      sockaddr_in addr;
   };
 } // namespace SS
 #endif

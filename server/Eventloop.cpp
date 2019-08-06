@@ -4,7 +4,7 @@
 
 using namespace SS;
 
- __thread Eventloop* local_loop = nullptr;  // 当前线程local的eventloop
+ __thread Eventloop* local_loop = NULL;  // 当前线程local的eventloop
 
 Eventloop::Eventloop(int timeout) : timeout(timeout), looping(false), thread_id(Thread::tid()), watcher(new Watcher(this)) {
   if (local_loop) {

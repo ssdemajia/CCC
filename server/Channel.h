@@ -8,7 +8,7 @@ namespace SS
   typedef std::function<void()> Callback;
   class Channel {
     public:
-      Channel(Eventloop *loop, int fd): loop(loop), fd(fd) {}
+      Channel(Eventloop *loop, int fd): loop(loop), fd(fd), index(-1), {}
 
       void handle_event();
       bool ignore_event() { return events == IgnoreEvent; };
@@ -33,9 +33,9 @@ namespace SS
 
       Eventloop* loop;
       const int fd;
-      int index = -1; // 在pollfd数组中的索引
-      short int events = 0;
-      short int revents = 0;
+      int index; // 在pollfd数组中的索引
+      short int events;
+      short int revents;
 
       Callback read_callback;
       Callback write_callback;
