@@ -1,7 +1,7 @@
 OBJECTS = Eventloop.o Channel.o Watcher.o Thread.o
 
 eventloop_example:  $(OBJECTS) eventloop_example.cpp
-	c++ -g -std=c++11 -o eventloop_example eventloop_example.cpp $(OBJECTS)
+	c++ -g -std=c++11 -o eventloop_example.out eventloop_example.cpp $(OBJECTS)
 
 eventloop: Eventloop.cpp Eventloop.h
 	c++ -std=c++11 -c Eventloop.cpp -o Eventloop.o
