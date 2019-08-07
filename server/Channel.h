@@ -21,7 +21,7 @@ namespace SS
       int get_fd() { return fd; }
       void set_index(int index) { this->index = index; }
 
-      void enable_read() { update(ReadEvent); }
+      void enable_read() { update(ReadEvent); }  // 使fd能够监听读事件
       void enable_write() { update(WriteEvent); }
 
     private:

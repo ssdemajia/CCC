@@ -1,10 +1,12 @@
-OBJECTS = Eventloop.o Channel.o Watcher.o Thread.o Socket.o IP.o Acceptor.o
+OBJECTS = Eventloop.o Channel.o Watcher.o Thread.o Socket.o IP.o Acceptor.o Conn.o Server.o
 
-acceptor_example: $(OBJECTS) acceptor_example.cpp
-	c++ -std=c++11 -o acceptor_example.out acceptor_example.cpp $(OBJECTS)
+example_conn: $(OBJECTS) example_conn.cpp
+	c++ -std=c++11 -o example_conn.out example_conn.cpp $(OBJECTS)
+example_acceptor: $(OBJECTS) example_acceptor.cpp
+	c++ -std=c++11 -o example_acceptor.out example_acceptor.cpp $(OBJECTS)
 
-eventloop_example:  $(OBJECTS) eventloop_example.cpp
-	c++ -g -std=c++11 -o eventloop_example.out eventloop_example.cpp $(OBJECTS)
+example_eventlop:  $(OBJECTS) example_eventlop.cpp
+	c++ -g -std=c++11 -o example_eventlop.out example_eventlop.cpp $(OBJECTS)
 
 eventloop: Eventloop.cpp Eventloop.h
 	c++ -std=c++11 -c Eventloop.cpp -o Eventloop.o
@@ -26,5 +28,8 @@ ip: IP.cpp IP.h
 
 socket: Socket.cpp Socket.h
 	c++ -std=c++11 -c Socket.cpp -o Socket.o
+
+conn: Conn.cpp Conn.h
+	c++ -std=c++11 -c Conn.cpp -o Conn.o
 clean:
 	rm *.o
