@@ -10,6 +10,9 @@ namespace SS
     public:
       IP() {}
       IP(const std::string ip, uint16_t port);
+
+      std::string get_ip();
+      uint16_t get_port();
       struct sockaddr_in& get_addr();
       void set_addr(sockaddr_in& in_addr) { addr = in_addr; }
       void set_addr(sockaddr* in_addr) {

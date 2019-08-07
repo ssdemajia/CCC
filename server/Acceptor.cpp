@@ -19,5 +19,5 @@ void Acceptor::listen() {
 void Acceptor::handle_read() {
   IP ip;
   int connfd = accept_socket.accept(ip);
-  if (cb) cb(connfd, ip);
+  if (connfd != -1 && cb) cb(connfd, ip);
 }

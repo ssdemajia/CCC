@@ -1,7 +1,7 @@
 OBJECTS = Eventloop.o Channel.o Watcher.o Thread.o Socket.o IP.o Acceptor.o
 
 acceptor_example: $(OBJECTS) acceptor_example.cpp
-	c++ -Wc++11-extensions -g -std=c++11 -o acceptor_example.out acceptor_example.cpp $(OBJECTS)
+	c++ -std=c++11 -o acceptor_example.out acceptor_example.cpp $(OBJECTS)
 
 eventloop_example:  $(OBJECTS) eventloop_example.cpp
 	c++ -g -std=c++11 -o eventloop_example.out eventloop_example.cpp $(OBJECTS)

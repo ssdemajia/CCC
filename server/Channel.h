@@ -8,7 +8,7 @@ namespace SS
   typedef std::function<void()> Callback;
   class Channel {
     public:
-      Channel(Eventloop *loop, int fd): loop(loop), fd(fd), index(-1), {}
+      Channel(Eventloop *loop, int fd): loop(loop), fd(fd), index(-1) {}
 
       void handle_event();
       bool ignore_event() { return events == IgnoreEvent; };

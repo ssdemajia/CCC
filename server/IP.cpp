@@ -22,3 +22,12 @@ IP::IP(const std::string ip, uint16_t port) {
 struct sockaddr_in& IP::get_addr() {
   return addr;
 }
+
+std::string IP::get_ip() {
+  char ipc[16];
+  return inet_ntop(AF_INET, &addr.sin_addr, ipc, 16);
+}
+
+uint16_t IP::get_port() {
+  return ntohs(addr.sin_port);
+}

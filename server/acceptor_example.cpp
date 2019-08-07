@@ -1,8 +1,10 @@
 #include "Eventloop.h"
-
+#include "IP.h"
+#include "Acceptor.h"
+#include <iostream>
 void create_new_conn(int sockfd, SS::IP& ip) {
-  printf("new connection")
-  write("who are you");
+  printf("new connection");
+  std::cout<<"who are you" << std::endl;
   close(sockfd);
 }
 int main() {

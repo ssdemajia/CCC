@@ -13,7 +13,6 @@ namespace SS
   class Eventloop {
     public:
       Eventloop(int timeout=1000);
-      ~Eventloop();
 
       static Eventloop* get_current_loop();
       void quit();
