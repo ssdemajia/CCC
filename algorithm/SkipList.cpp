@@ -125,10 +125,12 @@ private:
 int main()
 {
   SkipList s;
-  s.Insert(1, "shuai");
-  s.Insert(2, "shao");
-  s.Insert(3, "07");
-  s.Insert(4, "bb");
+  vector<pair<int, string>> input = {
+    {1, "shaoshuai"},
+    {2, "shao"},
+    {3, "07"},
+    {4, "bb"}
+  };
   HAS(s, 1, "shuai")
   HAS(s, 2, "shao")
   HAS(s, 3, "07")
