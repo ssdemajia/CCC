@@ -1,2 +1,2 @@
 # CCC
-my c++ toy program
+my toy program
