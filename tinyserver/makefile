@@ -1,10 +1,10 @@
 CPP = g++
-CPPFLAGS = -Wall
-main.exe: main.cpp tools.cpp
+CPPFLAGS = -Wall -g
+main.exe: main.cpp tools.cpp  http_parser.c
 	$(CPP) $(CPPFLAGS) $^ -o $@
 
-echo.exe: tools.cpp echo.cpp 
+echo.exe: tools.cpp echo.cpp
 	$(CPP) $(CPPFLAGS) $^ -o $@
 
 clean:
-	rm -rf *.o *.s
+	rm -rf *.o *.s *.exe

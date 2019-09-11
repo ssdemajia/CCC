@@ -30,4 +30,5 @@ void Getnameinfo(const SA* sa, socklen_t salen, char* host, size_t hostlen,
                  char* service, size_t servlen, int flags);
 void Setsockopt(int sockfd, int level, int optname,
                 const void *optval, socklen_t optlen);
+void Close(int fd);
 #endif

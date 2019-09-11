@@ -33,7 +33,7 @@ int OpenClientfd(const char* hostname, char* port) {
       continue;
     if (connect(clientfd, p->ai_addr, p->ai_addrlen) != -1)
       break;
-    close(clientfd);
+    Close(clientfd);
   }
   freeaddrinfo(listp);
   if (!p) return -1;
@@ -55,7 +55,7 @@ int OpenListenfd(const char* port) {
     Setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(int));
     if (bind(listenfd, p->ai_addr, p->ai_addrlen) == 0)
       break;
-    close(listenfd);
+    Close(listenfd);
   }
   freeaddrinfo(listp);
   if (!p) return -1;
@@ -130,6 +130,13 @@ void Setsockopt(int sockfd, int level, int optname,
              const void *optval, socklen_t optlen) {
   if (setsockopt(sockfd, level, optname, optval, optlen) != 0) {
     Log(stderr, "setsockopt error: %s\n", strerror(errno));
+    exit(0);
+  }
+}
+
+void Close(int fd) {
+  if (close(fd) != 0) {
+    Log(stderr, "close error: %s\n", strerror(errno));
     exit(0);
   }
 }
