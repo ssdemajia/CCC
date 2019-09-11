@@ -1,8 +1,10 @@
 CPP = g++
 CPPFLAGS = -Wall
-Main.exe: main.cpp tools.cpp
+main.exe: main.cpp tools.cpp
 	$(CPP) $(CPPFLAGS) $^ -o $@
 
+echo.exe: tools.cpp echo.cpp 
+	$(CPP) $(CPPFLAGS) $^ -o $@
 
 clean:
 	rm -rf *.o *.s
