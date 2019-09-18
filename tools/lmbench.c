@@ -1,5 +1,5 @@
 /**
- *  like lmbench
+ *  like lmbench,  测试在单核的电脑中进程切换所需要的时间
 */
 #include <unistd.h>
 #include <sys/types.h>
